@@ -58,7 +58,7 @@ impl State {
             self.score += 1;
             self.obstacle = Obstacle::new(self.player.x + SCREEN_WIDTH, self.score);
         }
-        if self.player.y > SCREEN_HEIGHT {
+        if self.player.y > SCREEN_HEIGHT || self.obstacle.hit_obstacle(&self.player) {
             self.mode = GameMode::End;
         }
 
